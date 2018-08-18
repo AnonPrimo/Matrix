@@ -16,11 +16,12 @@ namespace Matrix
         const string litters = "ASDFGHJKLPOIUYTREWQZXCVBNM123645789";
 
         public int Colunm { get; set; }
-
+        
         public Matrix2_0(int col)
         {
-            Colunm = col;
             r = new Random((int)DateTime.Now.Ticks);
+            Colunm = r.Next(0, col);
+
         }
 
         private char GetChar()
@@ -37,10 +38,12 @@ namespace Matrix
             {
                 count = r.Next(3, 6);
                 length = 0;
+
                 Thread.Sleep(r.Next(20, 5000));
+
                 for(int i = 0; i < 40; ++i)
                 {
-                    lock(locker)
+                    lock (locker)
                     {
                         Console.CursorTop = 0;
                         Console.ForegroundColor = ConsoleColor.Black;
@@ -49,6 +52,7 @@ namespace Matrix
                             Console.CursorLeft = Colunm;
                             Console.WriteLine(GetChar());
                         }
+
                         if (length < count)
                             length++;
                         else
@@ -57,28 +61,30 @@ namespace Matrix
 
                         if (39 - i < length)
                             length--;
+
                         Console.CursorTop = i - length + 1;
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
 
-                        for(int j=0; j<length-2; ++j)
+                        for(int j = 0; j < length-2; ++j)
                         {
                             Console.CursorLeft = Colunm;
                             Console.WriteLine(GetChar());
                         }
 
-                        if(length>=2)
+                        if(length >= 2)
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.CursorLeft = Colunm;
                             Console.WriteLine(GetChar());
                         }
 
-                        if(length>=1)
+                        if(length >= 1)
                         {
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.CursorLeft = Colunm;
                             Console.WriteLine(GetChar());
                         }
+
                         Thread.Sleep(20);
                     }
                 }

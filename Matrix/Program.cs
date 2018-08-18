@@ -12,27 +12,21 @@ namespace Matrix
     {
         static void Main(string[] args)
         {
-            int wsWidth = 100, wsHeigth=10;
+            int wsWidth = 100, wsHeigth = 45;
+
             Console.SetWindowSize(wsWidth, wsHeigth);
-            Matrix m = new Matrix(wsWidth, wsHeigth);
-            m.Move();
-            for (int i = 0; i < 5; ++i)
+
+            Matrix2_0 []m = new Matrix2_0[30];
+
+            
+
+            for (int i = 0; i < m.Length; ++i)
             {
-
-                
-               // new Thread(m.Move).Start();
+                m[i] = new Matrix2_0(100);
+                new Thread(m[i].Move).Start();
             }
-            //Console.SetWindowSize(80, 40);
-
-            //Matrix2_0 mat;
-
-            //for(int i = 0; i < 30; ++i)
-            //{
-            //    mat = new Matrix2_0(i * 2);
-            //    new Thread(mat.Move).Start();
-            //}
-
-
+      
+            
             Console.ReadLine();
         }
     }

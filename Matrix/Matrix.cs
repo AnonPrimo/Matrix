@@ -16,6 +16,7 @@ namespace Matrix
         Random r = new Random();
 
         int wsWidth, wsHeigth, shift;
+
         public Matrix(int w, int h)
         {
             this.wsWidth = w;
@@ -31,7 +32,6 @@ namespace Matrix
 
         public void Move()
         {
-            //Thread.Sleep(r.Next(20, 1000));
             int lt = 0;
             int count = 4;
             for (int i = 1; i < this.wsHeigth+2; i++)
